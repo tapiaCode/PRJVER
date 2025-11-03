@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Información Agrícola - Comarapa</title>
+    <!-- Inclusión de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inclusión de Google Font (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+
+<body class="text-gray-800">
+
+    <!-- Contenedor de la animación de pétalos -->
+    <div class="petal-container" aria-hidden="true">
+        <!-- Generamos múltiples pétalos con diferentes posiciones y retrasos -->
+        <div class="petal p-1" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="petal p-2" style="left: 20%; animation-delay: -5s;"></div>
+        <div class="petal p-3" style="left: 30%; animation-delay: -2s;"></div>
+        <div class="petal p-1" style="left: 40%; animation-delay: -10s;"></div>
+        <div class="petal p-2" style="left: 50%; animation-delay: -3s;"></div>
+        <div class="petal p-3" style="left: 60%; animation-delay: -7s;"></div>
+        <div class="petal p-1" style="left: 70%; animation-delay: -1s;"></div>
+        <div class="petal p-2" style="left: 80%; animation-delay: -8s;"></div>
+        <div class="petal p-3" style="left: 90%; animation-delay: -4s;"></div>
+        <div class="petal p-1" style="left: 15%; animation-delay: -6s;"></div>
+        <div class="petal p-2" style="left: 25%; animation-delay: -11s;"></div>
+        <div class="petal p-3" style="left: 35%; animation-delay: -1s;"></div>
+    </div>
+
+    <!-- Contenedor principal del contenido (sobre la animación) -->
+    <div class="relative z-10 min-h-screen p-4 md:p-8">
+        <div class="max-w-7xl mx-auto">
+
+            <!-- Cabecera -->
+            <header class="text-center my-8 p-6 rounded-lg info-card shadow-lg">
+                <h1
+                    class="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-pink-500">
+                    Plataforma de Información Agrícola
+                </h1>
+                <p class="text-xl md:text-2xl mt-2 font-semibold text-gray-700">Para Agricultores de Comarapa, Santa
+                    Cruz</p>
+            </header>
+
+            <!-- Navegación por Pestañas -->
+            <nav class="flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0 sm:space-x-4 mb-8">
+                <button class="tab-button active text-lg font-medium py-3 px-6 rounded-lg transition-all duration-300"
+                    data-target="#clima-section">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-block mr-2" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                    </svg>
+                    Clima y Alertas
+                </button>
+                <button
+                    class="tab-button text-lg font-medium py-3 px-6 rounded-lg bg-white bg-opacity-50 hover:bg-opacity-100 transition-all duration-300"
+                    data-target="#cultivos-section">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-block mr-2" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.965l-2.287 2.287a2 2 0 01-2.828 0l-2.287-2.287a6 6 0 00-3.86-.965l-2.387.477a2 2 0 00-1.022.547m16.5 0a2 2 0 001.022-.547m0 0a2 2 0 00.547-1.022m0 0a2 2 0 00-.547-1.022m0 0a2 2 0 00-1.022-.547M10 20.572a2 2 0 00-1.022.547m0 0a2 2 0 00-1.022.547m0 0a2 2 0 00-.547 1.022m0 0a2 2 0 00.547 1.022m0 0a2 2 0 001.022.547m0 0a2 2 0 001.022-.547M10 4.428a2 2 0 00-1.022-.547M10 4.428a2 2 0 00.547 1.022m0 0a2 2 0 001.022.547m0 0a2 2 0 001.022-.547m0 0a2 2 0 00.547-1.022m0 0a2 2 0 00-.547-1.022M20 10a2 2 0 00.547 1.022m0 0a2 2 0 001.022.547m0 0a2 2 0 001.022-.547m0 0a2 2 0 00.547-1.022m0 0a2 2 0 00-.547-1.022M4 10a2 2 0 00-.547 1.022m0 0a2 2 0 00-1.022.547m0 0a2 2 0 00-1.022-.547m0 0a2 2 0 00-.547-1.022m0 0a2 2 0 00.547-1.022" />
+                    </svg>
+                    Recomendación de Cultivos
+                </button>
+                <button
+                    class="tab-button text-lg font-medium py-3 px-6 rounded-lg bg-white bg-opacity-50 hover:bg-opacity-100 transition-all duration-300"
+                    data-target="#plagas-section">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-block mr-2" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Manejo de Plagas
+                </button>
+            </nav>
+
+            <!-- Contenido de las Secciones -->
+            <main>
+                <!-- Sección Clima (Visible por defecto) -->
+                <section id="clima-section" class="content-section">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Tarjeta de Clima en Tiempo Real -->
+                        <div class="info-card rounded-xl shadow-lg p-6">
+                            <h3 class="text-2xl font-bold text-blue-600 mb-4">Clima en Comarapa (En Tiempo Real)</h3>
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <p class="text-6xl font-bold">22°C</p>
+                                    <p class="text-xl text-gray-600">Parcialmente Nublado</p>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-yellow-500" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                                </svg>
+                            </div>
+                            <div class="space-y-2 text-lg">
+                                <p><strong>Humedad:</strong> 65%</p>
+                                <p><strong>Viento:</strong> 10 km/h (Noreste)</p>
+                                <p><strong>Prob. de Lluvia:</strong> 15%</p>
+                            </div>
+                            <p class="text-sm text-gray-500 mt-4">Actualizado: 02 de Nov, 2025 - 11:30 PM</p>
+                        </div>
+
+                        <!-- Tarjeta de Alertas -->
+                        <div class="info-card rounded-xl shadow-lg p-6">
+                            <h3 class="text-2xl font-bold text-red-600 mb-4">Alertas Meteorológicas</h3>
+                            <div class="space-y-4">
+                                <div class="border-l-4 border-yellow-500 pl-4">
+                                    <h4 class="font-bold text-lg">Alerta Amarilla: Vientos Fuertes</h4>
+                                    <p class="text-gray-700">Se esperan ráfagas de viento de hasta 40 km/h en las
+                                        próximas 6 horas. Asegure invernaderos y cubiertas.</p>
+                                </div>
+                                <div class="border-l-4 border-blue-500 pl-4">
+                                    <h4 class="font-bold text-lg">Aviso: Descenso de Temperatura</h4>
+                                    <p class="text-gray-700">Posible descenso de temperatura nocturna para el 04 de Nov.
+                                        Riesgo leve de heladas en zonas altas.</p>
+                                </div>
+                                <div class="border-l-4 border-gray-400 pl-4">
+                                    <h4 class="font-bold text-lg">Sin Alertas de Lluvia</h4>
+                                    <p class="text-gray-700">No se esperan precipitaciones significativas en las
+                                        próximas 48 horas.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Sección Cultivos (Oculta por defecto) -->
+                <section id="cultivos-section" class="content-section hidden">
+                    <h2 class="text-3xl font-bold text-white text-center mb-6">Cultivos Recomendados en Comarapa</h2>
+
+                    <!-- Pestañas Internas para Frutas y Hortalizas -->
+                    <div class="flex justify-center space-x-2 mb-6">
+                        <button class="sub-tab-button active text-base font-medium py-2 px-4 rounded-lg bg-white shadow"
+                            data-target="#frutas-content">Frutas</button>
+                        <button class="sub-tab-button text-base font-medium py-2 px-4 rounded-lg bg-white bg-opacity-50"
+                            data-target="#hortalizas-content">Hortalizas y Otros</button>
+                    </div>
+
+                    <!-- Contenido Frutas -->
+                    <div id="frutas-content"
+                        class="sub-content-section grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Tarjeta de Cultivo (Ejemplo) -->
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Frutilla"
+                                alt="[Imagen de Frutilla]" class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Frutilla'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">Frutilla (Fresa)</h4>
+                                <p class="text-gray-700">Comarapa es el corazón de la producción de frutilla en Bolivia.
+                                    Este cultivo requiere suelos bien drenados, ricos en materia orgánica y un manejo
+                                    cuidadoso del riego. Es sensible a heladas y enfermedades fúngicas.</p>
+                            </div>
+                        </div>
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Durazno" alt="[Imagen de Durazno]"
+                                class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Durazno'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">Durazno</h4>
+                                <p class="text-gray-700">El "durazno de Comarapa" es reconocido por su calidad y sabor.
+                                    Requiere horas de frío (dependiendo de la variedad), buena exposición solar y podas
+                                    de formación y producción para asegurar una buena cosecha.</p>
+                            </div>
+                        </div>
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Manzana" alt="[Imagen de Manzana]"
+                                class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Manzana'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">Manzana</h4>
+                                <p class="text-gray-700">Cultivada en los valles mesotérmicos. La elección de variedades
+                                    adaptadas al clima local es crucial. Requiere manejo de plagas como la carpocapsa y
+                                    podas regulares.</p>
+                            </div>
+                        </div>
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Chirimoya"
+                                alt="[Imagen de Chirimoya]" class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Chirimoya'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">Chirimoya</h4>
+                                <p class="text-gray-700">Frutal de los valles cruceños, apreciado por su sabor. Es
+                                    sensible a bajas temperaturas y requiere polinización manual en algunas zonas para
+                                    mejorar el cuajado del fruto.</p>
+                            </div>
+                        </div>
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Mandarina"
+                                alt="[Imagen de Mandarina]" class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Mandarina'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">Mandarina</h4>
+                                <p class="text-gray-700">Los cítricos como la mandarina se adaptan bien a Comarapa.
+                                    Requieren suelos profundos y buen drenaje. El manejo de la mosca de la fruta es
+                                    fundamental.</p>
+                            </div>
+                        </div>
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Naranja" alt="[Imagen de Naranja]"
+                                class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Naranja'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">Naranja</h4>
+                                <p class="text-gray-700">Al igual que la mandarina, es un cultivo importante. Requiere
+                                    fertilización balanceada, especialmente en nitrógeno y potasio, para una buena
+                                    producción.</p>
+                            </div>
+                        </div>
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Palta" alt="[Imagen de Palta]"
+                                class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Palta'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">Palta (Aguacate)</h4>
+                                <p class="text-gray-700">Un frutal con alta demanda. Sensible al encharcamiento (asfixia
+                                    radicular). La elección de la variedad (Hass, Fuerte) depende del mercado y las
+                                    condiciones locales.</p>
+                            </div>
+                        </div>
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Mango" alt="[Imagen de Mango]"
+                                class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Mango'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">Mango</h4>
+                                <p class="text-gray-700">Aunque más tropical, ciertas variedades se adaptan a los
+                                    valles. Requiere protección contra fríos intensos cuando es joven y manejo de la
+                                    antracnosis.</p>
+                            </div>
+                        </div>
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Papaya" alt="[Imagen de Papaya]"
+                                class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Papaya'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">Papaya</h4>
+                                <p class="text-gray-700">Cultivo de ciclo corto. Muy sensible a heladas y virosis.
+                                    Requiere suelos muy bien drenados y alta fertilidad para una producción rápida y de
+                                    calidad.</p>
+                            </div>
+                        </div>
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Higo" alt="[Imagen de Higo]"
+                                class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Higo'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">Higo</h4>
+                                <p class="text-gray-700">Frutal rústico y resistente a la sequía una vez establecido. Se
+                                    adapta bien a los valles. La producción es valorada tanto en fresco como en
+                                    deshidratado.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contenido Hortalizas -->
+                    <div id="hortalizas-content"
+                        class="sub-content-section hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Tomate" alt="[Imagen de Tomate]"
+                                class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Tomate'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">Tomate</h4>
+                                <p class="text-gray-700">Cultivo estrella de los valles. Se cultiva tanto a campo
+                                    abierto como en invernadero. Exige un control fitosanitario riguroso (tuta, mosca
+                                    blanca) y un buen plan de fertilización.</p>
+                            </div>
+                        </div>
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Cebolla" alt="[Imagen de Cebolla]"
+                                class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Cebolla'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">Cebolla</h4>
+                                <p class="text-gray-700">Hortaliza fundamental en la rotación de cultivos. Requiere
+                                    suelos sueltos. El control de malezas en las primeras etapas y el curado
+                                    post-cosecha son claves.</p>
+                            </div>
+                        </div>
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Zanahoria"
+                                alt="[Imagen de Zanahoria]" class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Zanahoria'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">Zanahoria</h4>
+                                <p class="text-gray-700">Prefiere suelos profundos y arenosos para un buen desarrollo de
+                                    la raíz. El riego debe ser constante para evitar raíces agrietadas o deformes.</p>
+                            </div>
+                        </div>
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Vainita" alt="[Imagen de Vainita]"
+                                class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Vainita'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">Vainita (Judía verde)</h4>
+                                <p class="text-gray-700">Cultivo de ciclo rápido. Existen variedades de mata baja y de
+                                    enrame (con tutor). Es fijadora de nitrógeno, mejorando el suelo para el siguiente
+                                    cultivo.</p>
+                            </div>
+                        </div>
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Pepinillo"
+                                alt="[Imagen de Pepinillo]" class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Pepinillo'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">Pepinillo</h4>
+                                <p class="text-gray-700">Generalmente cultivado con tutores. Muy susceptible a mildiu y
+                                    oidio, requiere monitoreo constante de humedad y buena ventilación.</p>
+                            </div>
+                        </div>
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Locoto" alt="[Imagen de Locoto]"
+                                class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Locoto'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">Locoto (Ají picante)</h4>
+                                <p class="text-gray-700">Hortaliza de alto valor. Requiere temperaturas cálidas. El
+                                    manejo de áfidos y mosca blanca es crucial, ya que son vectores de virus.</p>
+                            </div>
+                        </div>
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Papa" alt="[Imagen de Papa]"
+                                class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Papa'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">Papa</h4>
+                                <p class="text-gray-700">Cultivo fundamental en la seguridad alimentaria y economía de
+                                    Comarapa. El manejo del tizón tardío (Phytophthora) y el gorgojo de los Andes es
+                                    vital.</p>
+                            </div>
+                        </div>
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Maíz" alt="[Imagen de Maíz]"
+                                class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Maíz'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">Maíz</h4>
+                                <p class="text-gray-700">Cultivo tradicional, usado para choclo y grano seco. El control
+                                    del gusano cogollero en las primeras etapas es determinante para el rendimiento.</p>
+                            </div>
+                        </div>
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Pimentón"
+                                alt="[Imagen de Pimentón]" class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Pimentón'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">Pimentón (Pimiento)</h4>
+                                <p class="text-gray-700">Cultivo de alta rentabilidad, usualmente bajo invernadero. Muy
+                                    exigente en nutrientes y sensible a estrés hídrico y enfermedades fúngicas de raíz.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Caña+de+Azúcar"
+                                alt="[Imagen de Caña de Azúcar]" class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Caña+de+Azúcar'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">Caña de Azúcar</h4>
+                                <p class="text-gray-700">Aunque más agroindustrial, se cultiva en la zona para la
+                                    producción de chancaca (empanizado) y consumo local. Requiere buena disponibilidad
+                                    de agua.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- Sección Plagas (Oculta por defecto) -->
+                <section id="plagas-section" class="content-section hidden">
+                    <h2 class="text-3xl font-bold text-white text-center mb-6">Manejo Integrado de Plagas</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                        <!-- Tarjeta de Plaga (Ejemplo) -->
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Mosca+de+la+Fruta"
+                                alt="[Imagen de Mosca de la fruta]" class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Plaga'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">1. Mosca de la fruta</h4>
+                                <p class="text-gray-700 mb-3"><strong>Descripción:</strong> Pequeñas moscas (ej.
+                                    *Anastrepha fraterculus*, *Ceratitis capitata*) que depositan sus huevos bajo la
+                                    piel de frutas como duraznos, mangos, higos y cítricos. Las larvas se alimentan de
+                                    la pulpa, pudriendo la fruta.</p>
+                                <p class="text-gray-700"><strong>Tratamiento:</strong> Manejo integrado. Recojo y
+                                    destrucción de fruta caída. Uso de trampas (McPhail, Jackson) con atrayentes.
+                                    Aplicación de cebo tóxico en franjas. Control biológico (avispas parasitoides).</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Gusano+Cogollero"
+                                alt="[Imagen de Gusano cogollero]" class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Plaga'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">2. Gusano cogollero</h4>
+                                <p class="text-gray-700 mb-3"><strong>Descripción:</strong> (*Spodoptera frugiperda*)
+                                    Principal plaga del maíz. La larva se alimenta del cogollo (centro) de la planta,
+                                    causando perforaciones en las hojas y reduciendo el rendimiento.</p>
+                                <p class="text-gray-700"><strong>Tratamiento:</strong> Monitoreo constante. Aplicación
+                                    de insecticidas (químicos o biológicos como *Bacillus thuringiensis*) dirigidos al
+                                    cogollo en horas de la tarde. Control biológico.</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Mosca+Blanca"
+                                alt="[Imagen de Mosca blanca]" class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Plaga'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">3. Mosca blanca</h4>
+                                <p class="text-gray-700 mb-3"><strong>Descripción:</strong> (*Bemisia tabaci*) Insectos
+                                    pequeños que se alimentan de la savia en el envés de las hojas (tomate, pimentón).
+                                    Debilitan la planta y transmiten virus peligrosos (ej. TYLCV).</p>
+                                <p class="text-gray-700"><strong>Tratamiento:</strong> Trampas pegajosas amarillas.
+                                    Mallas anti-insectos en invernaderos. Jabón potásico o aceite de neem. Insecticidas
+                                    sistémicos en casos severos.</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Gusano+Militar"
+                                alt="[Imagen de Gusano militar]" class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Plaga'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">4. Gusano militar</h4>
+                                <p class="text-gray-700 mb-3"><strong>Descripción:</strong> (*Spodoptera spp.*) Similar
+                                    al cogollero, ataca follaje de maíz, hortalizas y papa. Suelen migrar en grandes
+                                    grupos ("ejércitos") cuando el alimento escasea.</p>
+                                <p class="text-gray-700"><strong>Tratamiento:</strong> Control biológico. Insecticidas
+                                    biológicos (*B. thuringiensis*). Control químico en infestaciones altas.</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Chinche+Marrón"
+                                alt="[Imagen de Chinche marrón]" class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Plaga'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">5. Chinche marrón</h4>
+                                <p class="text-gray-700 mb-3"><strong>Descripción:</strong> (*Halyomorpha halys* u otros
+                                    pentatómidos) Chinches que pican frutas y vainas (tomate, pimentón, vainita),
+                                    causando deformaciones y manchas. Difíciles de controlar.</p>
+                                <p class="text-gray-700"><strong>Tratamiento:</strong> Control manual (recojo). Trampas
+                                    de feromonas. Insecticidas de contacto (piretroides), aunque su efectividad es
+                                    limitada en adultos.</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Gusano+Alambre"
+                                alt="[Imagen de Gusano alambre]" class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Plaga'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">6. Gusano alambre</h4>
+                                <p class="text-gray-700 mb-3"><strong>Descripción:</strong> Larvas de escarabajos
+                                    (Elateridae). Son duras, amarillentas y viven en el suelo, alimentándose de raíces y
+                                    tubérculos (papa, zanahoria, maíz).</p>
+                                <p class="text-gray-700"><strong>Tratamiento:</strong> Rotación de cultivos. Buena
+                                    preparación del suelo. Insecticidas granulados al suelo al momento de la siembra.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Polilla+del+Maíz"
+                                alt="[Imagen de Polilla del maíz]" class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Plaga'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">7. Polilla del maíz</h4>
+                                <p class="text-gray-700 mb-3"><strong>Descripción:</strong> (*Heliothis zea*) También
+                                    llamado gusano elotero. La larva penetra la mazorca (choclo) por los estigmas
+                                    (pelos) y se alimenta de los granos en la punta.</p>
+                                <p class="text-gray-700"><strong>Tratamiento:</strong> Aplicación de aceite mineral en
+                                    los estigmas (método orgánico). Insecticidas dirigidos a los estigmas en el momento
+                                    crítico.</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Langosta"
+                                alt="[Imagen de Langosta]" class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Plaga'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">8. Langosta</h4>
+                                <p class="text-gray-700 mb-3"><strong>Descripción:</strong> (*Schistocerca cancellata*)
+                                    Insectos migratorios que pueden formar mangas y devorar cultivos enteros (maíz,
+                                    caña) en poco tiempo. Plaga cíclica y muy destructiva.</p>
+                                <p class="text-gray-700"><strong>Tratamiento:</strong> Alerta temprana (SENASAG).
+                                    Control químico coordinado en focos de ninfas (etapa juvenil) antes de que vuelen.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Grillo+Topo"
+                                alt="[Imagen de Grillo topo]" class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Plaga'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">9. Grillo topo</h4>
+                                <p class="text-gray-700 mb-3"><strong>Descripción:</strong> (*Scapteriscus spp.*)
+                                    Insecto subterráneo que excava túneles, cortando raíces de plántulas (hortalizas,
+                                    maíz) y césped. Activo de noche.</p>
+                                <p class="text-gray-700"><strong>Tratamiento:</strong> Cebos tóxicos granulados.
+                                    Inundación del terreno. Control biológico con nematodos entomopatógenos.</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Pulgones"
+                                alt="[Imagen de Pulgones]" class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Plaga'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">10. Pulgones (Áfidos)</h4>
+                                <p class="text-gray-700 mb-3"><strong>Descripción:</strong> Insectos chupadores
+                                    pequeños, verdes o negros, que se agrupan en brotes tiernos y envés de hojas
+                                    (frutilla, hortalizas, cítricos). Transmiten virus y excretan melaza (fumagina).</p>
+                                <p class="text-gray-700"><strong>Tratamiento:</strong> Fomentar control biológico
+                                    (mariquitas, crisopas). Jabón potásico o aceite de neem. Insecticidas específicos
+                                    (aficidas).</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Trips" alt="[Imagen de Trips]"
+                                class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Plaga'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">11. Trips</h4>
+                                <p class="text-gray-700 mb-3"><strong>Descripción:</strong> Insectos diminutos que
+                                    raspan y chupan savia de hojas y flores (frutilla, tomate, pimentón). Causan manchas
+                                    plateadas y deformación. Vectores de virus (TSWV en tomate).</p>
+                                <p class="text-gray-700"><strong>Tratamiento:</strong> Trampas pegajosas azules o
+                                    amarillas. Control biológico (ácaros depredadores). Aceite de neem. Insecticidas
+                                    específicos.</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Ácaros" alt="[Imagen de Ácaros]"
+                                class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Plaga'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">12. Ácaros</h4>
+                                <p class="text-gray-700 mb-3"><strong>Descripción:</strong> (Arañita roja, ácaro blanco)
+                                    Arácnidos muy pequeños. Chupan savia, causando punteado amarillento, bronceado y
+                                    finas telarañas (arañita roja) en el envés. Atacan frutilla, tomate, cítricos.</p>
+                                <p class="text-gray-700"><strong>Tratamiento:</strong> Aumentar humedad ambiental (riego
+                                    por aspersión). Acaricidas específicos (ej. Abamectina, azufre). Liberación de
+                                    ácaros depredadores.</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Gusano+Cortador"
+                                alt="[Imagen de Gusano cortador]" class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Plaga'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">13. Gusano cortador</h4>
+                                <p class="text-gray-700 mb-3"><strong>Descripción:</strong> (*Agrotis spp.*) Larvas de
+                                    polillas que viven en el suelo. De noche, cortan las plántulas (maíz, hortalizas) a
+                                    la altura del cuello (base del tallo).</p>
+                                <p class="text-gray-700"><strong>Tratamiento:</strong> Eliminación de malezas antes de
+                                    la siembra. Cebos tóxicos al atardecer. Insecticidas granulados al suelo.</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Minador+de+Hojas"
+                                alt="[Imagen de Minador de hojas]" class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Plaga'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">14. Minador de hojas</h4>
+                                <p class="text-gray-700 mb-3"><strong>Descripción:</strong> (*Liriomyza spp.*) Larvas de
+                                    moscas pequeñas que excavan "minas" o galerías dentro de las hojas (tomate, papa,
+                                    cebolla), reduciendo la fotosíntesis.</p>
+                                <p class="text-gray-700"><strong>Tratamiento:</strong> Trampas amarillas. Eliminación de
+                                    hojas afectadas. Insecticidas sistémicos o translaminar. Control biológico (avispas
+                                    parasitoides).</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Gorgojo+del+Suelo"
+                                alt="[Imagen de Gorgojo del suelo]" class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Plaga'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">15. Gorgojo del suelo</h4>
+                                <p class="text-gray-700 mb-3"><strong>Descripción:</strong> (Gorgojo de los Andes en
+                                    papa) Adultos y larvas atacan raíces y tubérculos. Las larvas causan galerías en las
+                                    papas, depreciando el producto.</p>
+                                <p class="text-gray-700"><strong>Tratamiento:</strong> Rotación de cultivos. Aporque
+                                    alto en papa. Trampas de caída. Control químico al suelo en siembra.</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Chicharrita+del+Maíz"
+                                alt="[Imagen de Chicharrita del maíz]" class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Plaga'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">16. Chicharrita del maíz</h4>
+                                <p class="text-gray-700 mb-3"><strong>Descripción:</strong> (*Dalbulus maidis*) Insecto
+                                    chupador que, además del daño directo, es el principal vector del "achaparramiento
+                                    del maíz" (Spiroplasma), una enfermedad grave.</p>
+                                <p class="text-gray-700"><strong>Tratamiento:</strong> Uso de variedades tolerantes.
+                                    Tratamiento de semillas con insecticidas sistémicos. Control de plantas voluntarias
+                                    de maíz (guachas).</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Barrenador+del+Fruto"
+                                alt="[Imagen de Barrenador del fruto]" class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Plaga'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">17. Barrenador del fruto</h4>
+                                <p class="text-gray-700 mb-3"><strong>Descripción:</strong> (Polilla del tomate, *Tuta
+                                    absoluta*) Microlepidóptero que ataca al tomate. La larva barrena hojas, tallos y,
+                                    lo más grave, los frutos, pudriéndolos.</p>
+                                <p class="text-gray-700"><strong>Tratamiento:</strong> Mallas anti-insectos. Trampas de
+                                    feromonas. Eliminación de restos de cultivo. *Bacillus thuringiensis*. Insecticidas
+                                    específicos.</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Escarabajo+de+la+Raíz"
+                                alt="[Imagen de Escarabajo de la raíz]" class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Plaga'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">18. Escarabajo de la raíz</h4>
+                                <p class="text-gray-700 mb-3"><strong>Descripción:</strong> (*Diabrotica spp.*) Las
+                                    larvas (alfilerillo) atacan raíces de maíz, causando acame (caída) de plantas. Los
+                                    adultos comen hojas y estigmas.</p>
+                                <p class="text-gray-700"><strong>Tratamiento:</strong> Rotación de cultivos (evitar maíz
+                                    sobre maíz). Insecticidas al suelo en la siembra.</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Gusano+de+la+Frutilla"
+                                alt="[Imagen de Gusano de la frutilla]" class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Plaga'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">19. Gusano de la frutilla</h4>
+                                <p class="text-gray-700 mb-3"><strong>Descripción:</strong> Larvas de diferentes
+                                    insectos (ej. *Spodoptera* o gorgojos) que pueden perforar la fruta o alimentarse de
+                                    la corona de la planta.</p>
+                                <p class="text-gray-700"><strong>Tratamiento:</strong> Monitoreo constante. Eliminación
+                                    manual. *Bacillus thuringiensis* si son larvas de lepidópteros. Buena higiene del
+                                    cultivo.</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://placehold.co/600x400/eeeeee/333333?text=Nematodos+del+Suelo"
+                                alt="[Imagen de Nematodos del suelo]" class="w-full h-48 object-cover"
+                                onerror="this.src='https://placehold.co/600x400?text=Plaga'">
+                            <div class="p-5">
+                                <h4 class="text-2xl font-bold mb-2">20. Nematodos del suelo</h4>
+                                <p class="text-gray-700 mb-3"><strong>Descripción:</strong> (*Meloidogyne spp.*) Gusanos
+                                    microscópicos que atacan raíces, formando "nudos" o agallas (visibles en tomate,
+                                    pimentón, zanahoria). Causan marchitez y enanismo.</p>
+                                <p class="text-gray-700"><strong>Tratamiento:</strong> Rotación con cultivos no
+                                    susceptibles (ej. maíz). Solarización del suelo. Nematicidas (químicos o biológicos)
+                                    aplicados al suelo.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+            </main>
+
+            <!-- Pie de Página -->
+            <footer class="text-center mt-12 mb-4">
+                <p class="text-white text-opacity-80">Plataforma Agrícola Comarapa &copy; 2025</p>
+            </footer>
+
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
